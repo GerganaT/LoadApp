@@ -20,6 +20,76 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="@dimen/padding_large"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/download_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colorPrimaryDark"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/ic_baseline_cloud_download_24" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:paddingStart="@dimen/padding_large"
+            android:paddingTop="@dimen/padding_large"
+            android:paddingEnd="@dimen/padding_large"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="-32dp">
+
+            <RadioButton
+                android:id="@+id/glide_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_middle"
+                android:minHeight="48dp"
+                android:text="@string/glide_radio_label"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <RadioButton
+                android:id="@+id/udacity_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_middle"
+                android:minHeight="48dp"
+                android:text="@string/udacity_radio_label"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <RadioButton
+                android:id="@+id/retrofit_radio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_middle"
+                android:minHeight="48dp"
+                android:text="@string/retrofit_radio_label"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+        </RadioGroup>
+
+        <com.udacity.LoadingButton
+            android:id="@+id/custom_button"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+          />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
