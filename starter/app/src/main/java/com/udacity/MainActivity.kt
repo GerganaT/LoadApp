@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var pendingIntent: PendingIntent
     private lateinit var action: NotificationCompat.Action
     private lateinit var radioGroup: RadioGroup
-    private lateinit var buttonState: ButtonState
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         radioGroup = findViewById(R.id.radioGroup)
         custom_button.setOnClickListener {
             download()
-
         }
     }
 
@@ -43,9 +41,9 @@ class MainActivity : AppCompatActivity() {
     private val receiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val id = intent?.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
-            if (id?.toInt()!= -1){
+            if (id?.toInt() != -1) {
                 custom_button.buttonState = ButtonState.Completed
-                Toast.makeText(context,"file downloaded",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "file downloaded", Toast.LENGTH_SHORT).show()
                 //TODO show file and remove toast ?
             }
         }
@@ -54,7 +52,7 @@ class MainActivity : AppCompatActivity() {
     private fun download() {
         val radioButtonID = radioGroup.checkedRadioButtonId
         if (radioButtonID != -1) {
-            buttonState = ButtonState.Loading
+            custom_button.buttonState = ButtonState.Loading
             val request = DownloadManager.Request(
                 Uri.parse(
                     when (radioButtonID) {
