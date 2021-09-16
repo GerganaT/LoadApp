@@ -113,29 +113,6 @@ class LoadingButton @JvmOverloads constructor(
 
     }
 
-
-    //TODO Implement this to show notification and details activity with either success or failure content
-    fun DownloadManager.determineDownloadStatus(id: Long, contentResolver: ContentResolver) {
-        val query = DownloadManager.Query()
-        query.setFilterById(id)
-        val cursor = query(query)
-        if (cursor.moveToFirst()) {
-            val downloadSuccess = cursor.getColumnIndex(
-                DownloadManager.STATUS_SUCCESSFUL.toString()
-            )
-            val downloadFailed = cursor.getColumnIndex(DownloadManager.STATUS_FAILED.toString())
-            val currentDownloadStatus = cursor.getColumnIndex(
-                DownloadManager.COLUMN_STATUS // current status of the download
-            )
-//            val downloadSize = cursor.getInt(downloadSuccess) //reference to how to query the DM
-//            val downloaded = cursor.getInt(currentDownloadStatus)
-
-
-        }
-
-    }
-
-
     init {
         isClickable = true
     }
