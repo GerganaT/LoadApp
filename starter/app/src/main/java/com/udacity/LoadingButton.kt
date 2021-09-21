@@ -2,9 +2,8 @@ package com.udacity
 
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator
-import android.app.DownloadManager
-import android.content.ContentResolver
 import android.content.Context
+import android.content.res.TypedArray
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.RectF
@@ -21,7 +20,10 @@ private const val START_ROTATION_DEGREE = 0f
 class LoadingButton @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
-
+    private var downloadingButtonPaint: Paint
+    private var downloadingCirclePaint: Paint
+    private var buttonTextPaint: Paint
+    private var buttonBackgroundPaint: Paint
     private var buttonBackgroundColor = 0
     private var buttonTextColor = 0
     private var widthSize = resources.getDimension(R.dimen.buttonWidth)
@@ -30,7 +32,8 @@ class LoadingButton @JvmOverloads constructor(
     private val animator = ValueAnimator()
     private val buttonRectF = RectF(0f, 0f, widthSize, heightSize)
     private var currentPercentage = 0
-    private val attrsArray = context.obtainStyledAttributes(attrs, R.styleable.LoadingButton)
+    private var attrsArray =
+        context.obtainStyledAttributes(attrs, R.styleable.LoadingButton)
     var buttonState: ButtonState by Delegates.observable(ButtonState.Completed)
     { _, _, new: ButtonState ->
         when (new) {
@@ -71,50 +74,50 @@ class LoadingButton @JvmOverloads constructor(
     }
 
     init {
-
         isClickable = true
-
-    }
-
-
-    private val buttonBackgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        buttonBackgroundColor = attrsArray.getColor(
-            R.styleable.LoadingButton_lb_background_color,
-            resources.getColor(R.color.colorPrimary, null)
-        )
-        color = buttonBackgroundColor
-        style = Paint.Style.FILL
-
-
-    }
-
-    private val buttonTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        buttonLabel = attrsArray.getString(R.styleable.LoadingButton_lb_text)
-            ?: resources.getString(R.string.download_button_label)
-        buttonTextColor = attrsArray.getColor(
-            R.styleable.LoadingButton_lb_text_color,
-            resources.getColor(R.color.white, null)
-        )
-        color = buttonTextColor
-        textSize = resources.getDimension(R.dimen.default_text_size)
-        textAlign = Paint.Align.CENTER
-
-
-    }
-
-    private val downloadingCirclePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = resources.getColor(R.color.colorAccent, null)
-        style = Paint.Style.FILL
-
-    }
-    private val downloadingButtonPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = resources.getColor(R.color.colorPrimaryDark, null)
-        style = Paint.Style.FILL
-
     }
 
     init {
-        isClickable = true
+        buttonBackgroundPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            buttonBackgroundColor = attrsArray.getColor(
+                R.styleable.LoadingButton_lb_background_color,
+                resources.getColor(R.color.colorPrimary, null)
+            )
+            color = buttonBackgroundColor
+            style = Paint.Style.FILL
+
+
+        }
+
+        buttonTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            buttonLabel = attrsArray.getString(R.styleable.LoadingButton_lb_text)
+                ?: resources.getString(R.string.download_button_label)
+            buttonTextColor = attrsArray.getColor(
+                R.styleable.LoadingButton_lb_text_color,
+                resources.getColor(R.color.white, null)
+            )
+            color = buttonTextColor
+            textSize = resources.getDimension(R.dimen.default_text_size)
+            textAlign = Paint.Align.CENTER
+
+
+        }
+
+        downloadingCirclePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = resources.getColor(R.color.colorAccent, null)
+            style = Paint.Style.FILL
+
+        }
+        downloadingButtonPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = resources.getColor(R.color.colorPrimaryDark, null)
+            style = Paint.Style.FILL
+
+        }
+        //recycle the attributes array to free resources,
+        // as we already used it to expose our custom button attributes to the xml layout
+        attrsArray.recycle()
+
+
     }
 
 
