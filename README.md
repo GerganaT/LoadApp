@@ -16,8 +16,7 @@ A notification will be sent once the download has completed. When the notificati
 
 ## Licenses
 
-Glide
-=========
+## Glide
 
 https://bumptech.github.io/glide/dev/open-source-licenses.html
 
