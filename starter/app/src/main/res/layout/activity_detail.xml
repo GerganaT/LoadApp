@@ -1,28 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--    Copyright 2021,  Gergana Kirilova-->
+
+<!--    Licensed under the Apache License, Version 2.0 (the "License");-->
+<!--    you may not use this file except in compliance with the License.-->
+<!--    You may obtain a copy of the License at-->
+
+<!--    http://www.apache.org/licenses/LICENSE-2.0-->
+
+<!--    Unless required by applicable law or agreed to in writing, software-->
+<!--    distributed under the License is distributed on an "AS IS" BASIS,-->
+<!--    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.-->
+<!--    See the License for the specific language governing permissions and-->
+<!--    limitations under the License.-->
+
 <layout>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/motionLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".DetailActivity">
+        app:layoutDescription="@xml/activity_detail_scene">
 
-        <androidx.constraintlayout.motion.widget.MotionLayout
-            android:id="@+id/motionLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layoutDescription="@xml/activity_detail_scene">
-
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/status_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
-                app:showDownloadStatus="@{detailActivity.downloadStatus}"
                 app:layout_constraintBaseline_toBaselineOf="@+id/status_label_text"
-                app:layout_constraintStart_toStartOf="@+id/guideline" />
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:showDownloadStatus="@{detailActivity.downloadStatus}" />
 
             <TextView
                 android:id="@+id/file_name_text"
@@ -73,18 +86,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/buttonHeight"
                 android:layout_margin="@dimen/margin_default"
-                android:onClick="@{() -> detailActivity.finish()}"
                 android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:onClick="@{() -> detailActivity.finish()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:lb_background_color="@color/colorAccent"
                 app:lb_text="@string/ok_button_label"
                 tools:ignore="SpeakableTextPresentCheck" />
-
-        </androidx.constraintlayout.motion.widget.MotionLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/AppTheme.AppBarOverlay">
@@ -95,9 +108,8 @@
                 android:layout_height="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
-
         </com.google.android.material.appbar.AppBarLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
     <data>
 
