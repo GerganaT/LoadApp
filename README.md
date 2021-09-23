@@ -45,7 +45,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-## Project licensed under the Apache License,Version 2.0
+## Project license
 
 https://www.apache.org/licenses/LICENSE-2.0
 
