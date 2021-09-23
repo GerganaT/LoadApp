@@ -7,12 +7,21 @@ For this project I have created an app to download a file from The Web by clicki
 
 A notification will be sent once the download has completed. When the notification's "View status" button is clicked , the user lands on detail activity and the notification gets dismissed. In detail activity, the status of the download is displayed and animated via MotionLayout upon opening the activity.
 
+## USAGE
+
+Clone the repo :
+
+`git clone https://github.com/GerganaT/LoadApp.git`
+
 
 ## Built With
 
 * [Android Studio](https://developer.android.com/studio) - Default IDE used to build android apps
 * [Kotlin](https://kotlinlang.org/) - Default language used to build this project
 
+## Project preview
+
+https://user-images.githubusercontent.com/51824954/134474681-da70a0db-ce7a-4f64-83fa-a3b0138c2f15.mp4
 
 ## Licenses
 
