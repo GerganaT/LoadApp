@@ -14,7 +14,7 @@ A notification will be sent once the download has completed. When the notificati
 * [Kotlin](https://kotlinlang.org/) - Default language used to build this project
 
 
-## License
+## Licenses
 
 Glide
 ========
