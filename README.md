@@ -17,12 +17,12 @@ A notification will be sent once the download has completed. When the notificati
 ## Licenses
 
 Glide
-========
+=========
 
 https://bumptech.github.io/glide/dev/open-source-licenses.html
 
 Retrofit
-
+=========
 Copyright 2013 Square, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,6 +36,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 Project licensed under the Apache License,Version 2.0
-
+=====================================================
 https://www.apache.org/licenses/LICENSE-2.0
 
