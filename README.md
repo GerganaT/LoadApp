@@ -21,7 +21,9 @@ Clone the repo :
 
 ## Project preview
 
-https://user-images.githubusercontent.com/51824954/134474681-da70a0db-ce7a-4f64-83fa-a3b0138c2f15.mp4
+
+https://user-images.githubusercontent.com/51824954/134474892-b92ff2a3-bd2f-4c34-b331-2c02b133e467.mp4
+
 
 ## Licenses
 
