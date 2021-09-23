@@ -7,7 +7,7 @@ For this project I have created an app to download a file from The Web by clicki
 
 A notification will be sent once the download has completed. When the notification's "View status" button is clicked , the user lands on detail activity and the notification gets dismissed. In detail activity, the status of the download is displayed and animated via MotionLayout upon opening the activity.
 
-## USAGE
+## Usage
 
 Clone the repo :
 
